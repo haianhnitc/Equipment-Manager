@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@color/puple30"
+    app:cardElevation="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_gravity="center">
+
+        <!-- Tên phòng -->
+        <TextView
+            android:id="@+id/info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng A101"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/puple"
+            android:layout_gravity="center"
+            />
+        <!-- Danh sách thiết bị -->
+        <LinearLayout
+            android:id="@+id/devices_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách thiết bị:"
+                android:textSize="18sp"
+                android:textColor="#757575"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <!-- Thời gian mượn -->
+        <TextView
+            android:id="@+id/borrow_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Thời gian mượn: 08:00 - 10:00"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_gravity="center"/>
+
+
+        <!-- Nút trả -->
+        <Button
+            android:id="@+id/return_button"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/return_room"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/puple"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

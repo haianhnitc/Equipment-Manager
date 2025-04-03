@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Khai báo thuộc tính tùy chỉnh -->
+    <attr name="background_gradient" format="reference"/>
+    <attr name="card_background" format="color"/>
+    <attr name="primary_text" format="color"/>
+    <attr name="secondary_text" format="color"/>
+</resources>

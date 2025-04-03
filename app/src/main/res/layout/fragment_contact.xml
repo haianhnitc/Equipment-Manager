@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:layout_marginTop="15dp"
+    tools:context=".Navbar.Fragment.ContactFragment">
+
+    <!-- Thêm ScrollView để cuộn được -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Container bên trong ScrollView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Tiêu đề -->
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <TextView
+                android:id="@+id/contact_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/contact_title"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <!-- Mô tả -->
+            <TextView
+                android:id="@+id/contact_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_description"
+                android:textSize="20sp"
+                android:textColor="@color/blue"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/contact_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Thông tin liên hệ -->
+            <LinearLayout
+                android:id="@+id/contact_info_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/contact_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- Email -->
+                <TextView
+                    android:id="@+id/contact_email_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/email_label"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/contact_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/contact_email"
+                    android:textSize="19sp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Số điện thoại -->
+                <TextView
+                    android:id="@+id/contact_phone_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/phone_label"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/contact_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/contact_phone"
+                    android:textSize="19sp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Địa chỉ -->
+                <TextView
+                    android:id="@+id/contact_address_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/address_label"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/contact_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/contact_address"
+                    android:textSize="19sp" />
+            </LinearLayout>
+
+            <!-- Nút gửi yêu cầu hỗ trợ -->
+            <Button
+                android:id="@+id/send_request_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/send_request"
+                android:textSize="18sp"
+                android:backgroundTint="@color/puple"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/contact_info_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_max="200dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

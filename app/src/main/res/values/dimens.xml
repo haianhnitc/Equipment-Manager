@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="nav_drawer_width">350dp</dimen> <!-- Chiều rộng tùy chỉnh cho tablet -->
+    <dimen name="nav_drawer_margin">50dp</dimen> <!-- Lề tùy chỉnh cho tablet -->
+</resources>

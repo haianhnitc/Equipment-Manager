@@ -1,0 +1,85 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Navbar.Fragment.AccountManagerFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Ảnh sinh viên -->
+        <ImageView
+            android:id="@+id/studentImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile" />
+
+        <!-- Mã sinh viên -->
+        <TextView
+            android:id="@+id/studentIdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:text="@string/student_id"/>
+
+        <!-- Tên sinh viên -->
+        <TextView
+            android:id="@+id/studentNameTextView"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:text="@string/name" />
+
+        <!-- Số điện thoại -->
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/studentPhoneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:text="@string/phone_number"/>
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/studentEmailTextView"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:text="@string/email" />
+
+
+        <!-- Nút đổi mật khẩu -->
+        <Button
+            android:id="@+id/changePasswordButton"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/puple"
+            android:text="@string/change_password"
+            android:layout_marginTop="16dp" />
+
+        <!-- Nút đăng xuất -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:backgroundTint="@color/puple"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

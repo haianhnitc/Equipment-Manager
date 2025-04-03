@@ -1,0 +1,40 @@
+<!-- res/layout/dialog_additional_info.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/enter_your_information"
+        android:textSize="25sp"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"></TextView>
+
+    <EditText
+        android:id="@+id/editTextStudentId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/student_id"
+        android:textColor="@color/blue"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:hint="@string/phone_number"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_gravity="center" />
+</LinearLayout>

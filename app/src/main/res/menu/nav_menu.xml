@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <item
+        android:title="" />
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_deviceManager"
+            android:icon="@drawable/device"
+            android:title="@string/equipment"
+            ></item>
+        <item
+            android:id="@+id/nav_classRoom"
+            android:icon="@drawable/class_room"
+            android:title="@string/classroom"></item>
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/notification"
+            android:title="@string/notification"></item>
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/history"
+            android:title="@string/history"></item>
+        <item
+            android:id="@+id/nav_user_guide"
+            android:icon="@drawable/user_guide"
+            android:title="@string/user_guide"></item>
+        <item
+            android:id="@+id/account_manager"
+            android:icon="@drawable/account_manager"
+            android:title="@string/account_manager"></item>
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/setting"
+            android:title="@string/setting"></item>
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/contact"
+            android:title="@string/contact"></item>
+    </group>
+
+</menu>

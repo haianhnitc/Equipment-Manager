@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="16dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/green20">
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="20dp"
+    android:background="@color/green20">
+
+    <!-- Tiêu đề thông báo -->
+<TextView
+android:id="@+id/notification_title"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="22sp"
+    android:textStyle="bold"
+    android:textColor="@color/puple50"
+    android:shadowColor="@color/black"
+    android:shadowDx="1"
+    android:shadowDy="1"
+    android:shadowRadius="2" />
+
+    <!-- Nội dung thông báo -->
+<TextView
+android:id="@+id/notification_body"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="16sp"
+android:textColor="@color/puple"
+    android:layout_marginTop="12dp"
+    android:lineSpacingExtra="4dp" ></TextView>
+
+<TextView
+android:id="@+id/notification_time"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="14sp"
+    android:textColor="@color/black"
+    android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>

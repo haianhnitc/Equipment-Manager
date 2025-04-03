@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Tiêu đề -->
+            <TextView
+                android:id="@+id/userGuideTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_guide_title"
+                android:textColor="@color/puple"
+                android:textSize="28sp"
+                android:fontFamily="roboto"
+                android:letterSpacing="0.02"
+                android:paddingBottom="12dp"/>
+
+            <!-- Nội dung hướng dẫn -->
+            <TextView
+                android:id="@+id/userGuideTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_guide_content"
+                android:textSize="16sp"
+                android:fontFamily="roboto"
+                android:lineSpacingExtra="4dp"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="puple">#6672FF</color>
+    <color name="blue">#3B608C</color>
+
+    <color name="background_light">#F5F7FA</color>
+    <color name="card_background_light">#FFFFFF</color>
+    <color name="primary_text_light">#6672FF</color>
+    <color name="secondary_text_light">#5CB3FF</color>
+    <color name="blue_1">#1E88E5</color>
+
+    <color name="background_dark">#121212</color>
+    <color name="card_background_dark">#1E1E1E</color>
+    <color name="primary_text_dark">#E0E0E0</color>
+    <color name="secondary_text_dark">#B0B0B0</color>
+
+    <color name="blue20">#DBEEFF</color>
+    <color name="blue30">#C2E1FF</color>
+    <color name="blue40">#94CDFF</color>
+    <color name="blue50">#5CB3FF</color>
+    <color name="green20">#D7FAE0</color>
+    <color name="green30">#B7EFC3</color>
+    <color name="green40">#78DA90</color>
+    <color name="green50">#2DC26D</color>
+    <color name="red20">#FFDBDE</color>
+    <color name="red30">#FFB8BC</color>
+    <color name="red40">#FF99A0</color>
+    <color name="red50">#FF707A</color>
+    <color name="puple20">#E9E1FA</color>
+    <color name="puple30">#D3D0FE</color>
+    <color name="puple40">#BFA4FE</color>
+    <color name="puple50">#A079FC</color>
+    <color name="orange20">#FFE2C6</color>
+    <color name="orange30">#FFA1A4</color>
+    <color name="orange40">#FFB56C</color>
+    <color name="orange50">#FF9F41</color>
+    <color name="orange60">#FC820A</color>
+    <color name="yellow20">#FFF5C7</color>
+    <color name="yellow30">#FFE880</color>
+    <color name="yellow40">#FFD530</color>
+    <color name="yellow50">#FFC400</color>
+    <color name="yellow60">#FFB700</color>
+</resources>

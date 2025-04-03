@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4141923978",
+    "project_id": "project-ptuddd-java",
+    "storage_bucket": "project-ptuddd-java.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4141923978:android:6b82b5c201947b11bb7773",
+        "android_client_info": {
+          "package_name": "com.example.project_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUr0HYlE67UyAcTyuCfGNisUDgb8QSBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
