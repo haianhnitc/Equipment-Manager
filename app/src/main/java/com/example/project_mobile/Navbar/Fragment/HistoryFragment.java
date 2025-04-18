@@ -49,10 +49,13 @@ public class HistoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
         recyclerView = view.findViewById(R.id.recycler_history);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         historySearch = view.findViewById(R.id.search_history);
         clearIcon = view.findViewById(R.id.clear_icon);
         db = FirebaseFirestore.getInstance();
+
+        historyAdapter = new HistoryAdapter(historyList, getContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(historyAdapter);
 
 
         historySearch.addTextChangedListener(new TextWatcher() {

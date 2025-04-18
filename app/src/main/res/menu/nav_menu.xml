@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn = "navigation_view">
 
-    <item
-        android:title="" />
+
     <group
         android:checkableBehavior="single">
         <item

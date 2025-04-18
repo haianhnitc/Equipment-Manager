@@ -6,9 +6,4 @@
         <item>中文</item>
     </string-array>
 
-    <string-array name="history_filter_options">
-        <item>Tất cả</item>
-        <item>Thiết bị</item>
-        <item>Phòng học</item>
-    </string-array>
 </resources>

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.example.project_mobile.MainActivity;
+import com.example.project_mobile.R;
 import com.example.project_mobile.models.Notification;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,8 +38,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        Log.d("FCM", "Received message: " + remoteMessage.getNotification());
-        Log.d("FCM", "Data payload: " + remoteMessage.getData());
 
         String title = null;
         String body = null;
@@ -68,7 +67,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (title != null && body != null) {
             Log.d("FCM", "Processing notification with Title: " + title + ", Body: " + body);
             sendNotification(title, body);
-            saveNotification(title, body);
+            saveNotification(title, body, generateMessageId(title,body));
         } else {
             Log.e("FCM", "Title or body is null, cannot process notification. Title: " + title + ", Body: " + body);
         }
@@ -84,12 +83,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         String channelId = "default_channel_id";
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(android.R.drawable.ic_dialog_info) // Thay bằng icon của bạn
-                .setContentTitle(title)
-                .setContentText(body)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
-
+                .setSmallIcon(R.drawable.notification).setContentTitle(title).setContentText(body)
+                .setAutoCancel(true).setContentIntent(pendingIntent);
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         // Tạo kênh thông báo cho Android 8.0+
@@ -99,33 +94,27 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             manager.createNotificationChannel(channel);
         }
 
-        manager.notify((int) System.currentTimeMillis(), builder.build()); // ID duy nhất cho mỗi thông báo
+        manager.notify((int) System.currentTimeMillis(), builder.build());
     }
 
-    private void saveNotification(String title, String body) {
-        String time = new SimpleDateFormat("HH:mm dd/MM/yyyy", Locale.getDefault()).format(new Date());
-        Notification notification = new Notification(title, body, time);
+    private void saveNotification(String title, String body, String messageId) {
+        String time = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(new Date());
+        Notification notification = new Notification(title, body, time, messageId);
 
-        // Kiểm tra xem thông báo đã tồn tại chưa
         db.collection("notifications")
-                .whereEqualTo("title", title)
-                .whereEqualTo("body", body)
-                .whereEqualTo("time", time)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && task.getResult().isEmpty()) {
-                        // Nếu không tồn tại, mới lưu
-                        db.collection("notifications").add(notification)
-                                .addOnSuccessListener(documentReference -> {
-                                    Log.d("FCM", "Lưu thông báo thành công với ID: " + documentReference.getId());
-                                })
-                                .addOnFailureListener(e -> {
-                                    Log.e("FCM", "Lỗi khi lưu thông báo: ", e);
-                                });
-                    } else {
-                        Log.d("FCM", "Thông báo đã tồn tại, không lưu lại.");
-                    }
+                .document(messageId)
+                .set(notification)
+                .addOnSuccessListener(documentReference -> {
+                    Log.d("FCM", "Lưu thông báo thành công với messageId: " + messageId);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("FCM", "Lỗi khi lưu thông báo: ", e);
                 });
+    }
+
+    private String generateMessageId(String title, String body) {
+        String raw = title + "_" + body;
+        return String.valueOf(raw.hashCode()); // tạo ID từ nội dung
     }
 
     @Override

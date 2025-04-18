@@ -40,9 +40,6 @@
     <string name="dark_mode">Chế độ tối</string>
     <string name="change_language">Vui lòng khởi động lại ứng dụng để áp dụng thay đổi</string>
     <string name="user_guide_title">Hướng dẫn sử dụng</string>
-    <string name="user_guide_content">
-        1. Đăng nhập vào ứng dụng\n   - Mở ứng dụng, nhập Email và Mật khẩu, sau đó nhấn Đăng nhập.\n   - Hoặc dùng Google/Facebook để đăng nhập.\n   - Chưa có tài khoản? Nhấn \'Are you new user? Register\' để đăng ký.\n2. Đăng ký tài khoản mới\n   - Nhập Tên, Email, Mật khẩu, Mã số sinh viên và Số điện thoại.\n   - Nhấn Submit để hoàn tất đăng ký.\n3. Mượn thiết bị\n   - Vào \'Thiết bị\' từ menu.\n   - Chọn thiết bị, nhấn \'Mượn\', nhập số lượng và xác nhận.\n4. Đặt phòng học\n   - Vào \'Phòng học\' từ menu.\n   - Chọn phòng, nhấn \'Mượn\', chọn thiết bị và xác nhận.\n5. Xem lịch sử giao dịch\n   - Vào \'Lịch sử\', tìm kiếm bằng ID phòng hoặc tên thiết bị.\n  - Nhấn \'Trả phòng\' hoặc \'Trả thiết bị\' để trả phòng hoặc thiết bị.\n6. Quản lý tài khoản\n   - Vào \'Quản lý tài khoản\', cập nhật thông tin hoặc đăng xuất.\n7. Cài đặt\n   - Vào \'Cài đặt\', chọn ngôn ngữ hoặc chế độ tối, khởi động lại để áp dụng.\n8. Xem thông báo\n   - Vào \'Thông báo\', xem thông báo từ hệ thống.\n9. Liên hệ\n   - Vào \'Liên hệ\', xem thông tin liên hệ nếu cần hỗ trợ.
-    </string>
     <string name="device_id">ID Thiết Bị</string>
     <string name="device_model">Mẫu Thiết Bị</string>
     <string name="manufacturer">Nhà Sản Xuất</string>
@@ -59,7 +56,7 @@
     <string name="failed_retrieve_user">Không thể lấy thông tin người dùng</string>
     <string name="login_cancelled">Đã thoát đăng nhập.</string>
     <string name="login_failed">Đăng nhập thất bại</string>
-    <string name="authentication_failed.">Xác thực thất bại</string>
+    <string name="authentication_failed">Xác thực thất bại</string>
     <string name="login_successful">Đăng nhập thành công</string>
     <string name="required_password">Không được để trống mật khẩu</string>
     <string name="required_name">Không được để trống tên</string>
@@ -111,6 +108,9 @@
     <string name="return_equipment_successful">Trả thiết bị thành công</string>
     <string name="notification_permission_granted">Đã cấp quyền thông báo</string>
     <string name="notification_permission_denied">Quyền thông báo đã bị từ chối</string>
+    <string name="permission_library">Photo library access denied</string>
+    <string name="updated_photo_successfully">Photo updated successfully</string>
+    <string name="error_processing_photo">Error processing photo</string>
 
     <string name="contact_title">Liên hệ với chúng tôi</string>
     <string name="contact_description">Liên hệ với người có thẩm quyền để được hỗ trợ khi gặp sự cố hoặc cần tư vấn thêm.</string>
@@ -123,5 +123,78 @@
     <string name="send_request">Gửi yêu cầu</string>
     <string name="request_sent">Yêu cầu hỗ trợ đã được gửi thành công!</string>
     <string name="request_failed">Gửi yêu cầu hỗ trợ thất bại.</string>
+    <string name="room_borrowed_unreturned">Bạn đã mượn một phòng khác và chưa trả</string>
+    <string name="contact_admin">Vui lòng liên hệ với quản trị viên (Mục liên hệ) để đặt lịch mượn.</string>
+    <string name="room_capacity">Sức chứa của phòng</string>
+    <string name="call_support">Gọi hỗ trợ</string>
+    <string name="dial_failed">Mở hộp thoại gọi điện thất bại</string>
+
+
+    <string name="user_guide_content">
+1. Đăng nhập vào ứng dụng\n
+   - Mở ứng dụng trên điện thoại hoặc máy tính bảng.\n
+   - Nhập địa chỉ Email và Mật khẩu đã đăng ký vào các ô tương ứng.\n
+   - Nhấn nút "Đăng nhập" để truy cập ứng dụng.\n
+   - Nếu muốn đăng nhập nhanh, chọn biểu tượng Google hoặc Facebook(Nếu tài khoản bằng google hoặc facebook chưa tồn tại thì nó sẽ là đăng kí, nếu đã tồn tại thì nó là đăng nhập).\n
+   - **Lưu ý**: Đảm bảo kết nối internet ổn định khi đăng nhập, đăng kí (Tài khoản khi bạn đăng nhập sẽ có phiên đăng nhập là 6 ngày, trong phiên đăng nhập thì bạn sẽ không cần mạng để có thể vào app). Nếu quên mật khẩu, nhấn "Quên mật khẩu?" và làm theo hướng dẫn để đặt lại mật khẩu qua email.\n\n
+
+2. Đăng ký tài khoản mới\n
+   - Tại màn hình đăng ký, nhập đầy đủ thông tin: Tên, Email, Mật khẩu, Mã số sinh viên, và Số điện thoại.\n
+   - **Lưu ý**: Email phải là email hợp lệ, Mật khẩu cần ít nhất 6 ký tự, và Mã số sinh viên phải đúng định dạng của trường.\n
+   - Kiểm tra kỹ thông tin trước khi nhấn "Submit" để gửi yêu cầu đăng ký.\n
+   - Sau khi đăng ký thành công, bạn sẽ nhận được thông báo xác nhận và có thể đăng nhập ngay.\n
+   - **Nếu gặp lỗi**: Kiểm tra xem Email hoặc Mã số sinh viên đã được sử dụng chưa. Nếu cần hỗ trợ, liên hệ quản trị viên qua mục "Liên hệ", cung cấp về thông tin bị sai để quản trị viên tiến hành sửa đổi.\n\n
+
+3. Mượn thiết bị\n
+   - Từ màn hình chính, nhấn vào mục "Thiết bị" trong menu điều hướng (thường là biểu tượng thiết bị hoặc danh sách).\n
+   - Duyệt qua danh sách thiết bị khả dụng (máy chiếu, laptop, loa, v.v.) hoặc sử dụng thanh tìm kiếm để tìm nhanh.\n
+   - Nhấn vào thiết bị bạn muốn mượn để xem chi tiết (trạng thái, số lượng còn lại, thời gian mượn tối đa).\n
+   - Nhấn nút "Mượn", nhập số lượng thiết bị cần mượn (nếu có nhiều hơn một), sau đó nhấn "Xác nhận" để gửi yêu cầu.\n
+   - **Lưu ý**: Một số thiết bị có thể yêu cầu phê duyệt từ quản trị viên(nó không hiện ở trên app, khi muốn mượn bạn cần liên hệ cho quản trị viên qua mục liên hệ, trình bày rõ lý do mượn, thời gian mượn để chờ quản trị viên xem xét và duyệt)\n
+   - **Lưu ý**: Khi mượn thiết bị yêu cầu phải có mạng, nếu không có mạng thì sẽ chỉ hiển thị đã mượn trên máy của bạn (thực tế người khác vẫn thấy thiết bị chưa được mượn) và khi có mạng thì mới thực sự mượn hoàn tất\n\n
+
+4. Đặt phòng học\n
+   - Từ màn hình chính, nhấn vào mục "Phòng học" trong menu điều hướng.\n
+   - Xem danh sách phòng học khả dụng, bao gồm thông tin như sức chứa, thiết bị có sẵn (máy chiếu, bảng trắng, v.v.).\n
+   - Nhấn vào phòng bạn muốn đặt để xem lịch trống theo ngày và giờ.\n
+   - Chọn khung thời gian mong muốn, sau đó nhấn "Mượn".\n
+   - Nếu cần thiết bị bổ sung (ví dụ: máy chiếu), chọn từ danh sách thiết bị đi kèm trước khi nhấn "Xác nhận".\n
+   - **Lưu ý**: Một số phòng có thể yêu cầu phê duyệt và đặt lịch. Liên hệ cho quản trị viên qua phần liên hệ để tiến hành đặt.\n\n
+
+5. Xem lịch sử mượn\n
+   - Từ màn hình chính, nhấn vào mục "Lịch sử" trong menu điều hướng.\n
+   - Danh sách giao dịch sẽ hiển thị các lần mượn phòng hoặc thiết bị, bao gồm thông tin như ngày mượn, ngày trả, và trạng thái (đang mượn, đã trả).\n
+   - Sử dụng thanh tìm kiếm để lọc giao dịch theo ID phòng (ví dụ: PH101), tên thiết bị (ví dụ: Máy chiếu).\n
+   - Để trả phòng hoặc thiết bị, nhấn vào giao dịch tương ứng, sau đó chọn "Trả phòng" hoặc "Trả thiết bị".\n
+   - **Lưu ý**: Đảm bảo trả đúng hạn để tránh ảnh hưởng tới người mượn sau. Nếu gặp vấn đề (thiết bị hỏng, phòng không đúng mô tả), báo cáo ngay trong mục "Liên hệ".\n\n
+
+6. Quản lý tài khoản\n
+   - Từ màn hình chính, nhấn vào mục "Quản lý tài khoản".\n
+   - Xem thông tin cá nhân (Tên, Email, Mã số sinh viên, Số điện thoại) và chỉnh sửa nếu cần (liên hệ với quản trị viên).\n
+   - Để thay đổi mật khẩu, nhấn "Đổi mật khẩu", nhập mật khẩu cũ và mới, sau đó xác nhận.\n
+   - Để đăng xuất, nhấn "Đăng xuất" và xác nhận. Bạn sẽ được đưa về màn hình đăng nhập.\n
+   - Để cập nhật ảnh đại diện, nhấn vào ảnh và cho phép quyền truy cập vào thư viện ảnh của máy, sau đó chọn ảnh bạn muốn.\n
+   - **Lưu ý**: Nếu gặp lỗi khi cập nhật, kiểm tra kết nối internet hoặc liên hệ quản trị viên.\n\n
+
+7. Cài đặt\n
+   - Từ màn hình chính, nhấn vào mục "Cài đặt" trong menu điều hướng.\n
+   - Chọn ngôn ngữ hiển thị (ví dụ: Tiếng Việt, Tiếng Anh, Tiếng Trung) từ danh sách tùy chọn.\n
+   - Bật/tắt chế độ tối (Dark Mode) để thay đổi giao diện sáng hoặc tối, phù hợp với điều kiện ánh sáng.\n
+   - Sau khi thay đổi, nhấn "Lưu" và nên khởi động lại ứng dụng để áp dụng cài đặt mới.\n
+   - **Lưu ý**: Nếu giao diện hoặc ngôn ngữ không thay đổi sau khi bật chế độ tối, đổi ngôn ngữ thử đăng xuất và đăng nhập lại.\n\n
+
+8. Xem thông báo\n
+   - Từ màn hình chính, nhấn vào mục "Thông báo" (biểu tượng chuông trong menu).\n
+   - Xem danh sách thông báo chung từ quản trị viên.\n
+   - **Lưu ý**: Chỉ khi có mạng mới nhận được thông báo, nếu không có mạng thì tùy thuộc vào thời gian thông báo tồn tại trước khi gửi do quản trị viên đặt, nếu đủ thì khi có mạng trở lại sẽ nhận được thông báo.\n\n
+
+9. Liên hệ\n
+   - Từ màn hình chính, nhấn vào mục "Liên hệ" trong menu điều hướng.\n
+   - Xem thông tin liên hệ của quản trị viên, bao gồm Email, Số điện thoại, hoặc Địa chỉ văn phòng hỗ trợ.\n
+   - Nếu cần hỗ trợ trực tiếp, nhấn vào Email hoặc Số điện thoại để gửi tin nhắn/gọi điện (tùy thuộc vào thiết bị).\n
+   - Nếu cần mượn những phòng, thiết bị đặc biệt để chạy sự kiện thì bạn cần phải gửi thông tin toàn bộ sự kiện, thời gian, phòng mượn, thiết bị mượn qua email kèm đơn(nếu có) để chờ quản trị viên phê duyệt.\n
+   - Để báo cáo vấn đề (thiết bị hỏng, lỗi hệ thống), điền vào mẫu báo cáo trong mục "Gửi phản hồi" (nếu có), mô tả chi tiết và nhấn "Gửi".\n
+   - **Lưu ý**: Ghi lại mã giao dịch hoặc ID phòng/thiết bị khi liên hệ để được hỗ trợ nhanh hơn. Thời gian phản hồi có thể mất từ 24-48 giờ tùy vào vấn đề.\n
+    </string>
 
 </resources>

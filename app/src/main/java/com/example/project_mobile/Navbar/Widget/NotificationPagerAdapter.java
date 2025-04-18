@@ -36,17 +36,6 @@ public class NotificationPagerAdapter extends RecyclerView.Adapter<NotificationP
         holder.titleTextView.setText(notification.getTitle());
         holder.bodyTextView.setText(notification.getBody());
         holder.timeTextView.setText(notification.getTime());
-
-        // nếu là thông báo mới nhất (vị trí 0), thêm hiệu ứng nổi bật
-        if (position == 0) {
-            holder.itemView.setScaleX(1.05f);
-            holder.itemView.setScaleY(1.05f);
-            holder.itemView.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFFE0F7FA)); // Màu nhẹ
-        } else {
-            holder.itemView.setScaleX(1.0f);
-            holder.itemView.setScaleY(1.0f);
-            holder.itemView.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFFF5F5F5));
-        }
     }
 
     @Override

@@ -48,7 +48,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
         History history = historyList.get(position);
 
-        // Đặt lại văn bản dựa trên dữ liệu gốc
         String borrowTimeText = context.getString(R.string.borrow_time) + ": " + history.getBorrowTime();
         if (history.getReturnTime() != null) {
             borrowTimeText += "\n" + context.getString(R.string.return_time) + ": " + history.getReturnTime();
@@ -61,24 +60,32 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         if ("room".equals(history.getType())) {
             holder.infoText.setText(context.getString(R.string.room_id) + ": " + history.getRoom().getId());
 
-            // Hiển thị danh sách thiết bị đã mượn
             List<Equipment> devices = history.getRoom().getEquipmentList();
             holder.devicesContainer.removeAllViews();
+            TextView roomCapacity = new TextView(context);
+            roomCapacity.setText("Sức chứa của phòng: " + history.getRoom().getCapacity());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.gravity = Gravity.CENTER;
+            roomCapacity.setLayoutParams(params);
+            roomCapacity.setTextColor(ContextCompat.getColor(context, R.color.puple));
+            holder.devicesContainer.addView(roomCapacity);
+
             for (Equipment device : devices) {
                 if (device.getStatus().equals("Đã được mượn")) {
                     TextView deviceInfo = new TextView(context);
                     deviceInfo.setText(device.getEquipmentName() + " (" + context.getString(R.string.quantity) + ": " + device.getQuantity() + ")");
 
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
                     );
-                    params.gravity = Gravity.CENTER; // Center the TextView within its parent layout
-                    deviceInfo.setLayoutParams(params);
+                    params1.gravity = Gravity.CENTER; // Center the TextView within its parent layout
+                    deviceInfo.setLayoutParams(params1);
                     deviceInfo.setTextColor(ContextCompat.getColor(context, R.color.puple));
-
                     holder.devicesContainer.addView(deviceInfo);
-
                 }
             }
             holder.returnButton.setText(context.getString(R.string.return_room));
@@ -110,16 +117,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         // Xử lý nút "Trả"
         String finalBorrowTimeText = borrowTimeText;
         holder.returnButton.setOnClickListener(v -> {
-            String returnTime = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.getDefault()).format(new Date());
+            String returnTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
 
-            // Cập nhật trạng thái trong Firestore
             db.collection("history").document(history.getId())
                     .update("returnTime", returnTime)
                     .addOnSuccessListener(aVoid -> {
-                        // Cập nhật dữ liệu trong historyList
                         history.setReturnTime(returnTime);
 
-                        // Cập nhật trạng thái phòng và thiết bị
                         if(("room").equals(history.getType())) {
                             Room room = history.getRoom();
                             db.collection("rooms").document(room.getId())
@@ -147,7 +151,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
                         }
                         else if(("equipment").equals(history.getType())) {
                             Equipment equipment = history.getEquipment();
-                            db.collection("equipments").document(equipment.getEquipmentId()).get().addOnSuccessListener(documentSnapshot -> {
+                            db.collection("equipments").document(equipment.getEquipmentId()).get().
+                                    addOnSuccessListener(documentSnapshot -> {
                                 int quantity = 0;
                                Equipment thisEquipment = documentSnapshot.toObject(Equipment.class);
                                quantity = thisEquipment.getQuantity();

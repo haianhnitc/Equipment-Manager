@@ -52,6 +52,7 @@ dependencies {
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.firebase:firebase-messaging:23.4.1")
+    implementation("id.zelory:compressor:3.0.1")
 
 
 }

@@ -14,11 +14,16 @@
         <!-- Ảnh sinh viên -->
         <ImageView
             android:id="@+id/studentImageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/profile" />
+            android:shape="oval"
+            android:clipToOutline="true"
+            android:clickable="true"
+            android:focusable="true"
+
+ />
 
         <!-- Mã sinh viên -->
         <TextView

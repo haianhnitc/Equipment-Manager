@@ -8,7 +8,6 @@
     android:layout_marginTop="15dp"
     tools:context=".Navbar.Fragment.ContactFragment">
 
-    <!-- Thêm ScrollView để cuộn được -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,15 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Tiêu đề -->
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:src="@drawable/logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/contact_title"
@@ -72,7 +71,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
-                <!-- Email -->
                 <TextView
                     android:id="@+id/contact_email_label"
                     android:layout_width="wrap_content"
@@ -91,7 +89,6 @@
                     android:textSize="19sp"
                     android:layout_marginBottom="12dp" />
 
-                <!-- Số điện thoại -->
                 <TextView
                     android:id="@+id/contact_phone_label"
                     android:layout_width="wrap_content"
@@ -129,7 +126,6 @@
                     android:textSize="19sp" />
             </LinearLayout>
 
-            <!-- Nút gửi yêu cầu hỗ trợ -->
             <Button
                 android:id="@+id/send_request_button"
                 android:layout_width="0dp"
@@ -139,6 +135,19 @@
                 android:backgroundTint="@color/puple"
                 android:layout_marginTop="24dp"
                 app:layout_constraintTop_toBottomOf="@id/contact_info_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_max="200dp" />
+
+            <Button
+                android:id="@+id/call_support_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/call_support"
+                android:textSize="18sp"
+                android:backgroundTint="@color/puple"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/send_request_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintWidth_max="200dp" />

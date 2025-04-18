@@ -1,7 +1,12 @@
 package com.example.project_mobile.authencation;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.example.project_mobile.MainActivity;
@@ -58,6 +63,12 @@ public class GoogleSignInHelper {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(credential).addOnCompleteListener(activity, task -> {
             if (task.isSuccessful()) {
+
+                SharedPreferences prefs = activity.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putLong("login_time", System.currentTimeMillis());
+                editor.apply();
+
                 FirebaseUser firebaseUser = auth.getCurrentUser();
                 String userId = firebaseUser.getUid();
                 firestore.collection("users").document(userId).get().addOnSuccessListener(documentSnapshot -> {

@@ -39,9 +39,6 @@
     <string name="dark_mode">Dard Mode</string>
     <string name="change_language">Please restart the application to apply changes.</string>
     <string name="user_guide_title">User Guide</string>
-    <string name="user_guide_content">
-        1. Log in to the app\n   - Open the app, enter your Email and Password, then press Login.\n   - Or use Google/Facebook to log in.\n   - Don\'t have an account? Press \'Are you new user? Register\' to sign up.\n2. Register a new account\n   - Enter your Name, Email, Password, Student ID, and Phone Number.\n   - Press Submit to complete registration.\n3. Borrow Equipment\n   - Go to \'Device\' from the menu.\n   - Select a device, press \'Borrow\', enter the quantity, and confirm.\n4. Book a Classroom\n   - Go to \'Class room\' from the menu.\n   - Select a room, press \'Borrow\', choose devices, and confirm.\n5. View Transaction History\n   - Go to \'History\', search by room ID or equipment name.\n   - Press \'Return room\' or \'Return equipment\' to return a room or equipment.\n6. Manage Account\n   - Go to \'Account Manager\', update your info or log out.\n7. Settings\n   - Go to \'Setting\', choose language or dark mode, restart to apply changes.\n8. View Notifications\n   - Go to \'Notification\', check system notifications.\n9. Contact\n   - Go to \'Contact\', view contact info if you need support.
-    </string>
     <string name="device_id">Device ID</string>
     <string name="device_model">Device Model</string>
     <string name="manufacturer">Manufacturer</string>
@@ -58,7 +55,7 @@
     <string name="failed_retrieve_user">Failed to retrieve user information</string>
     <string name="login_cancelled">Login cancelled.</string>
     <string name="login_failed">Login failed</string>
-    <string name="authentication_failed.">Authentication failed.</string>
+    <string name="authentication_failed">Authentication failed.</string>
     <string name="login_successful">Login successful</string>
     <string name="required_password">Password cannot be empty</string>
     <string name="required_name">Name cannot be empty</string>
@@ -105,12 +102,15 @@
     <string name="equipment_quantity_required">Please enter a valid quantity (1-</string>
     <string name="failed_save_equipment_firestore">Failed to save equipment to firestore</string>
     <string name="failed_save_room_firestore">Failed to save room to firestore</string>
+    
     <string name="return_room">Return room</string>
     <string name="return_equipment">Return equipment</string>
     <string name="return_equipment_successful">Return equipment successful</string>
     <string name="notification_permission_granted">Notification permission granted</string>
     <string name="notification_permission_denied">Notification permission denied</string>
-
+    <string name="permission_library">Photo library access denied</string>
+    <string name="updated_photo_successfully">Photo updated successfully</string>
+    <string name="error_processing_photo">Error processing photo</string>
     <string name="contact_title">Contact Us</string>
     <string name="contact_description">Contact the authorities for support with issues or further assistance.</string>
     <string name="email_label">Email:</string>
@@ -123,4 +123,77 @@
     <string name="send_request">Send Request</string>
     <string name="request_sent">Support request sent successfully!</string>
     <string name="request_failed">Failed to send support request.</string>
+    <string name="room_borrowed_unreturned">You have borrowed another room and have not returned it</string>
+    <string name="contact_admin">Please contact the administrator (Contact Section) to schedule a loan.</string>
+    <string name="room_capacity">Room capacity</string>
+    <string name="call_support">Call support</string>
+    <string name="dial_failed">Failed to open dialer</string>
+
+
+    <string name="user_guide_content">
+1. Log in to the application\n
+   - Open the app on your phone or tablet.\n
+   - Enter your registered Email and Password in the respective fields.\n
+   - Tap the "Log in" button to access the app.\n
+   - For quick login, select the Google or Facebook icon (If the Google or Facebook account doesn’t exist, it will register a new account; if it exists, it will log in).\n
+   - **Note**: Ensure a stable internet connection when logging in or registering (Your account will have a 6-day login session, during which you can access the app without an internet connection). If you forget your password, tap "Forgot password?" and follow the instructions to reset it via email.\n\n
+
+2. Register a new account\n
+   - On the registration screen, enter all required information: Name, Email, Password, Student ID, and Phone Number.\n
+   - **Note**: The Email must be valid, the Password must be at least 6 characters, and the Student ID must match the school’s format.\n
+   - Double-check your information before tapping "Submit" to send the registration request.\n
+   - Upon successful registration, you’ll receive a confirmation message and can log in immediately.\n
+   - **If an error occurs**: Check if the Email or Student ID is already in use. For assistance, contact the administrator via the "Contact" section, providing details of the incorrect information for correction.\n\n
+
+3. Borrow equipment\n
+   - From the home screen, tap "Equipment" in the navigation menu (usually an equipment icon or list).\n
+   - Browse the list of available equipment (projectors, laptops, speakers, etc.) or use the search bar to find items quickly.\n
+   - Tap the equipment you want to borrow to view details (status, available quantity, maximum borrowing time).\n
+   - Tap the "Borrow" button, enter the quantity needed (if more than one), then tap "Confirm" to submit the request.\n
+   - **Note**: Some equipment may require administrator approval (this isn’t shown in the app; you must contact the administrator via the "Contact" section, clearly stating the reason and borrowing duration for review and approval).\n
+   - **Note**: Borrowing equipment requires an internet connection. Without internet, the app may show the equipment as borrowed on your device only (others will still see it as available), and the borrowing will complete only when you reconnect.\n\n
+
+4. Book a classroom\n
+   - From the home screen, tap "Classroom" in the navigation menu.\n
+   - View the list of available classrooms, including details like capacity and available equipment (projectors, whiteboards, etc.).\n
+   - Tap the classroom you want to book to check its availability by date and time.\n
+   - Select your desired time slot, then tap "Borrow".\n
+   - If additional equipment is needed (e.g., a projector), select from the accompanying equipment list before tapping "Confirm".\n
+   - **Note**: Some classrooms may require approval and scheduling. Contact the administrator via the "Contact" section to proceed with booking.\n\n
+
+5. View borrowing history\n
+   - From the home screen, tap "History" in the navigation menu.\n
+   - The transaction list will display your classroom or equipment borrowings, including details like borrowing date, return date, and status (borrowed, returned).\n
+   - Use the search bar to filter transactions by room ID (e.g., PH101) or equipment name (e.g., Projector).\n
+   - To return a classroom or equipment, tap the relevant transaction, then select "Return Room" or "Return Equipment".\n
+   - **Note**: Return items on time to avoid affecting subsequent borrowers. If there’s an issue (e.g., damaged equipment, incorrect room description), report it immediately via the "Contact" section.\n\n
+
+6. Manage account\n
+   - From the home screen, tap "Account Management".\n
+   - View personal information (Name, Email, Student ID, Phone Number) and edit if needed (contact the administrator).\n
+   - To change your password, tap "Change Password", enter the old and new passwords, then confirm.\n
+   - To log out, tap "Log out" and confirm. You’ll be redirected to the login screen.\n
+   - To update your profile picture, tap the image, grant access to your device’s photo library, and select the desired photo.\n
+   - **Note**: If you encounter errors during updates, check your internet connection or contact the administrator.\n\n
+
+7. Settings\n
+   - From the home screen, tap "Settings" in the navigation menu.\n
+   - Choose the display language (e.g., Vietnamese, English, Chinese) from the options list.\n
+   - Enable/disable Dark Mode to switch between light and dark interfaces, suitable for different lighting conditions.\n
+   - After making changes, tap "Save" and consider restarting the app to apply the new settings.\n
+   - **Note**: If the interface or language doesn’t change after enabling Dark Mode or switching languages, try logging out and logging back in.\n\n
+
+8. View notifications\n
+   - From the home screen, tap "Notifications" (a bell icon in the menu).\n
+   - View the list of general notifications from the administrator.\n
+   - **Note**: Notifications are received only when connected to the internet. If offline, notifications depend on the duration set by the administrator before sending; you’ll receive them once reconnected if they’re still valid.\n\n
+
+9. Contact\n
+   - From the home screen, tap "Contact" in the navigation menu.\n
+   - View the administrator’s contact information, including Email, Phone Number, or Support Office Address.\n
+   - For direct assistance, tap the Email or Phone Number to send a message/call (depending on the device).\n
+   - To borrow special rooms or equipment for events, send complete event details, timing, room, and equipment requests via email, along with a form (if applicable), to await administrator approval.\n
+   - To report issues (e.g., damaged equipment, system errors), fill out the feedback form in the "Send Feedback" section (if available), describe the issue in detail, and tap "Send".\n
+   - **Note**: Note down the transaction code or room/equipment ID when contacting for faster assistance. Response time may take 24-48 hours depending on the issue.\n
+    </string>
 </resources>

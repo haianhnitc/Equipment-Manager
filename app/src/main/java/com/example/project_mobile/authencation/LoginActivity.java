@@ -40,8 +40,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        auth = FirebaseAuth.getInstance();
+
+        if (auth.getCurrentUser() != null && isSessionValid()) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+            return;
+        }
+
         LocaleHelper.setLocale(this);
         setContentView(R.layout.activity_login);
+
 
         registerTextView = findViewById(R.id.textGoToRegisterPage);
         registerTextView.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        auth = FirebaseAuth.getInstance();
         loginEmail = findViewById(R.id.loginEmail);
         loginPassword = findViewById(R.id.loginPassword);
         loginButton = findViewById(R.id.loginButton);
@@ -85,6 +93,11 @@ public class LoginActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
+                                SharedPreferences prefs = getSharedPreferences("AppSettings", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putLong("login_time", System.currentTimeMillis());
+                                editor.apply();
+
                                 String userId = auth.getCurrentUser().getUid();
                                 firestore.collection("users").document(userId).get()
                                         .addOnSuccessListener(documentSnapshot -> {
@@ -125,10 +138,18 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.loginFacebook).setOnClickListener(v -> facebookSignInHelper.signIn());
     }
 
+    private boolean isSessionValid() {
+        SharedPreferences prefs = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        long loginTime = prefs.getLong("login_time", 0);
+        long currentTime = System.currentTimeMillis();
+        long sessionDuration = 6 * 24 * 60 * 60 * 1000;
+        boolean isValid = loginTime != 0 && (currentTime - loginTime) < sessionDuration;
+        return isValid;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // Xử lý kết quả đăng nhập Google
         // vì ở google có dùng RC_SIGN_IN nhưng facebook thì không
         if (requestCode == GoogleSignInHelper.RC_SIGN_IN) {

@@ -69,12 +69,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(context.getString(R.string.borrow) + " " + equipment.getEquipmentName());
 
-        // Tạo layout cho dialog
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(50, 40, 50, 20);
 
-        // Tạo EditText để nhập số lượng
         final EditText quantityInput = new EditText(context);
         quantityInput.setInputType(InputType.TYPE_CLASS_NUMBER);
         quantityInput.setHint(context.getString(R.string.enter_quantity) + " " + equipment.getQuantity() + ")");
@@ -86,7 +84,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         builder.setPositiveButton(context.getString(R.string.borrow), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String borrowTime = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.getDefault()).format(new Date());
+                String borrowTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",
+                        Locale.getDefault()).format(new Date());
                 String input = quantityInput.getText().toString();
                 if (!input.isEmpty()) {
                     int requestedQuantity = Integer.parseInt(input);
@@ -116,7 +115,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             }
         });
 
-        // Nút hủy
         builder.setNegativeButton(context.getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -127,7 +125,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        // Đảm bảo nút Borrow chỉ hoạt động khi input hợp lệ
         final Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         positiveButton.setEnabled(false);
 

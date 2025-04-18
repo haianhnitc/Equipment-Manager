@@ -1,51 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardCornerRadius="16dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    app:cardElevation="6dp"
-    app:cardBackgroundColor="@color/green20">
+    android:layout_marginHorizontal="16dp"
+    app:cardCornerRadius="24dp"
+    android:layout_marginBottom="20dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/transparent">
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:padding="20dp"
-    android:background="@color/green20">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_title_background"
+        android:clipToPadding="false"
+        android:padding="8dp">
 
-    <!-- Tiêu đề thông báo -->
-<TextView
-android:id="@+id/notification_title"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:textSize="22sp"
-    android:textStyle="bold"
-    android:textColor="@color/puple50"
-    android:shadowColor="@color/black"
-    android:shadowDx="1"
-    android:shadowDy="1"
-    android:shadowRadius="2" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_title_background"
+            android:alpha="0.9"
+            app:cardCornerRadius="20dp">
 
-    <!-- Nội dung thông báo -->
-<TextView
-android:id="@+id/notification_body"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:textSize="16sp"
-android:textColor="@color/puple"
-    android:layout_marginTop="12dp"
-    android:lineSpacingExtra="4dp" ></TextView>
+            <View
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/orange20"
+                android:alpha="0.3"
+                android:rotation="45"
+                android:translationZ="2dp" />
 
-<TextView
-android:id="@+id/notification_time"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:textSize="14sp"
-    android:textColor="@color/black"
-    android:layout_marginTop="12dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp">
 
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/notification_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/green20"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="4"
+                    android:ellipsize="end" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="3dp"
+                    android:layout_below="@id/notification_title"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/orange20"
+                    android:alpha="0.8"
+                    android:translationZ="1dp" />
+
+                <TextView
+                    android:id="@+id/notification_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/notification_title"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/green20"
+                    android:lineSpacingExtra="4dp"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/notification_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/notification_body"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/green20"
+                    android:alpha="0.7" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

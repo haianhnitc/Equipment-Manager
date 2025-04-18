@@ -1,18 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.Project_mobile" parent="Theme.Material3.Dark.NoActionBar">
-        <!-- Các thuộc tính cơ bản nếu cần -->
     </style>
 
-    <!-- Theme chính -->
     <style name="Theme.Project_mobile" parent="Base.Theme.Project_mobile">
-        <!-- Theme chính có thể không cần thêm thuộc tính nếu đã có light/dark mode -->
-<!--        <item name="android:background">@drawable/gradient_background_dark</item>-->
     </style>
-<!--    <style name="Theme.Project_mobile.Dark" parent="Theme.Project_mobile">-->
-<!--        <item name="android:background">@color/background_dark</item>-->
-<!--        <item name="background_gradient">@drawable/gradient_background_dark</item>-->
-<!--        <item name="card_background">@color/card_background_dark</item>-->
-<!--        <item name="primary_text">@color/primary_text_dark</item>-->
-<!--        <item name="secondary_text">@color/secondary_text_dark</item>-->
-<!--    </style>-->
+
 </resources>

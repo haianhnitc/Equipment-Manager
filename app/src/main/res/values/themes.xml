@@ -1,23 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.Project_mobile" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Các thuộc tính cơ bản nếu cần -->
     </style>
 
-    <!-- Theme chính -->
     <style name="Theme.Project_mobile" parent="Base.Theme.Project_mobile">
-        <!-- Theme chính có thể không cần thêm thuộc tính nếu đã có light/dark mode -->
-<!--        <item name="android:background">@drawable/gradient_background_light</item>-->
-<!--        <item name="background_gradient">@drawable/gradient_background_light</item>-->
-<!--        <item name="card_background">@color/card_background_light</item>-->
-<!--        <item name="primary_text">@color/primary_text_light</item>-->
-<!--        <item name="secondary_text">@color/secondary_text_light</item>-->
     </style>
 
-<!--    <style name="Theme.Project_mobile.Light" parent="Theme.Project_mobile">-->
-<!--        <item name="android:background">@color/background_light</item>-->
-<!--        <item name="background_gradient">@drawable/gradient_background_light</item>-->
-<!--        <item name="card_background">@color/card_background_light</item>-->
-<!--        <item name="primary_text">@color/primary_text_light</item>-->
-<!--        <item name="secondary_text">@color/secondary_text_light</item>-->
-<!--    </style>-->
 </resources>

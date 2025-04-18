@@ -53,7 +53,6 @@ public class ClassroomAdapter extends RecyclerView.Adapter<ClassroomAdapter.Room
         holder.roomName.setText( context.getString(R.string.room_id) + ": " + room.getId());
         holder.roomStatus.setText(context.getString(R.string.status) + ": " + room.getStatus());
 
-//         Hiển thị dialog khi nhấn vào phòng để xem thiết bị
         holder.borrowButton.setOnClickListener(v -> openClassroomDialog(room));
     }
 
@@ -69,60 +68,89 @@ public class ClassroomAdapter extends RecyclerView.Adapter<ClassroomAdapter.Room
                     Toast.makeText(context, context.getString(R.string.no_equipment), Toast.LENGTH_SHORT).show();
                 }
 
-                // Kiểm tra trạng thái phòng
                 if ("Đã được mượn".equals(roomData.getStatus())) {
                     Toast.makeText(context, context.getString(R.string.room_is_occupied), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Tạo danh sách checkbox cho các thiết bị
-                List<Equipment> equipments = roomData.getEquipmentList();
-                String[] equipmentNames = new String[equipments.size()];
-                boolean[] checkedItems = new boolean[equipments.size()];
-
-                for (int i = 0; i < equipments.size(); i++) {
-                    equipmentNames[i] = equipments.get(i).getEquipmentName() + " ( " + context.getString(R.string.quantity) + ": "
-                            + equipments.get(i).getQuantity() + " )";
+                if(room.getStatus().equals("Liên hệ")) {
+                    Toast.makeText(context, R.string.contact_admin, Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                builder.setMultiChoiceItems(equipmentNames, checkedItems, (dialog, which, isChecked) -> {
-                    checkedItems[which] = isChecked;
-                });
-
-                builder.setPositiveButton(context.getString(R.string.borrow), (dialog, which) -> {
-                    String borrowTime = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.getDefault()).format(new Date());
-
-                    // Cập nhật trạng thái của phòng
-                    db.collection("rooms").document(room.getId())
-                            .update("status", "Đã được mượn")
-                            .addOnSuccessListener(aVoid -> {
-                                // Cập nhật trạng thái của các thiết bị trong phòng
-                                for (int i = 0; i < equipments.size(); i++) {
-                                    if (checkedItems[i]) {
-                                        Equipment selectedDevice = equipments.get(i);
-                                        selectedDevice.setStatus("Đã được mượn");
+                db.collection("history").get().addOnSuccessListener(documentSnapshot1 -> {
+                    if(documentSnapshot1 != null) {
+                        List<History> listHistory = documentSnapshot1.toObjects(History.class);
+                        if(currentUser == null) return;
+                        db.collection("users").document(currentUser.getUid()).get().
+                                addOnSuccessListener(documentSnapshot2 -> {
+                            if(documentSnapshot2.exists()) {
+                                User user = documentSnapshot2.toObject(User.class);
+                                boolean hasBorrowedRoom = false;
+                                for(History history : listHistory) {
+                                    if(user.getStudentId().equals(history.getStudentId()) && history.getType().
+                                            equals("room") && history.getReturnTime() == null) {
+                                        hasBorrowedRoom = true;
+                                        break;
                                     }
                                 }
+                                if (hasBorrowedRoom) {
+                                    Toast.makeText(context, R.string.room_borrowed_unreturned,
+                                            Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
 
-                                // Cập nhật lại trạng thái thiết bị trong Firestore
-                                db.collection("rooms").document(room.getId())
-                                        .update("equipmentList", equipments)
-                                        .addOnSuccessListener(aVoid1 -> {
-                                            room.setEquipmentList(equipments);
-                                            room.setStatus("Đã được mượn");
-                                            saveToHistory(room, borrowTime);
-                                        })
-                                        .addOnFailureListener(e -> {
-                                            Toast.makeText(context, context.getString(R.string.error_update_equipment_status), Toast.LENGTH_SHORT).show();
-                                        });
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(context, context.getString(R.string.error_update_room_status), Toast.LENGTH_SHORT).show();
-                            });
+                                List<Equipment> equipments = roomData.getEquipmentList();
+                                String[] equipmentNames = new String[equipments.size()];
+                                boolean[] checkedItems = new boolean[equipments.size()];
+
+                                for (int i = 0; i < equipments.size(); i++) {
+                                    equipmentNames[i] = equipments.get(i).getEquipmentName() + " ( " + context.getString(R.string.quantity) + ": "
+                                            + equipments.get(i).getQuantity() + " )";
+                                }
+
+                                builder.setMultiChoiceItems(equipmentNames, checkedItems, (dialog, which, isChecked) -> {
+                                    checkedItems[which] = isChecked;
+                                });
+
+                                builder.setPositiveButton(context.getString(R.string.borrow), (dialog, which) -> {
+                                    String borrowTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",
+                                            Locale.getDefault()).format(new Date());
+
+                                    // Cập nhật trạng thái của phòng
+                                    db.collection("rooms").document(room.getId())
+                                            .update("status", "Đã được mượn")
+                                            .addOnSuccessListener(aVoid -> {
+                                                for (int i = 0; i < equipments.size(); i++) {
+                                                    if (checkedItems[i]) {
+                                                        Equipment selectedDevice = equipments.get(i);
+                                                        selectedDevice.setStatus("Đã được mượn");
+                                                    }
+                                                }
+                                                db.collection("rooms").document(room.getId())
+                                                        .update("equipmentList", equipments)
+                                                        .addOnSuccessListener(aVoid1 -> {
+                                                            room.setEquipmentList(equipments);
+                                                            room.setStatus("Đã được mượn");
+                                                            saveToHistory(room, borrowTime);
+                                                        })
+                                                        .addOnFailureListener(e -> {
+                                                            Toast.makeText(context, context.getString(R.string.error_update_equipment_status), Toast.LENGTH_SHORT).show();
+                                                        });
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                Toast.makeText(context, context.getString(R.string.error_update_room_status), Toast.LENGTH_SHORT).show();
+                                            });
+                                });
+
+                                builder.setNegativeButton(context.getString(R.string.cancel), null);
+                                builder.create().show();
+                            } });
+
+                    }
+                }).addOnFailureListener( e -> {
+                    Toast.makeText(context, context.getString(R.string.failed_fetch_data_firestore), Toast.LENGTH_SHORT).show();
                 });
-
-                builder.setNegativeButton(context.getString(R.string.cancel), null);
-                builder.create().show();
             } else {
                 Toast.makeText(context, context.getString(R.string.failed_fetch_data_firestore), Toast.LENGTH_SHORT).show();
             }
@@ -138,18 +166,19 @@ public class ClassroomAdapter extends RecyclerView.Adapter<ClassroomAdapter.Room
             if(documentSnapshot.exists()) {
                 User user = documentSnapshot.toObject(User.class);
 
-                // Lưu toàn bộ danh sách thiết bị của phòng, không chỉ các thiết bị đã mượn
-                Room roomWithAllDevices = new Room(room.getId(), room.getEquipmentList(), "Đã được mượn");
+                Room roomWithAllDevices = new Room(room.getId(), room.getEquipmentList(),
+                        "Đã được mượn", room.getCapacity());
                 History history = new History(user.getStudentId(),"room", roomWithAllDevices, null
                         , borrowTime, null);
 
-                // Lưu lịch sử vào Firestore
                 db.collection("history").add(history)
                         .addOnSuccessListener(documentReference -> {
-                            Toast.makeText(context, context.getString(R.string.room_borrowed_successfully), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.room_borrowed_successfully),
+                                    Toast.LENGTH_SHORT).show();
                         })
                         .addOnFailureListener(e -> {
-                            Toast.makeText(context, context.getString(R.string.room_borrowed_failed), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.room_borrowed_failed),
+                                    Toast.LENGTH_SHORT).show();
                         });
             }
         });

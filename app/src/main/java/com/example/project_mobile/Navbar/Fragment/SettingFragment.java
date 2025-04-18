@@ -118,7 +118,6 @@ public class SettingFragment extends Fragment {
             LocaleHelper.setLocale(getActivity());
             requireActivity().recreate();
 
-            Toast.makeText(getContext(), getContext().getString(R.string.reload_app), Toast.LENGTH_SHORT).show();
         }
     }
 }

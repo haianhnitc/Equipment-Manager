@@ -39,9 +39,6 @@
     <string name="dark_mode">深色模式</string>
     <string name="change_language">请重新启动应用以应用更改。</string>
     <string name="user_guide_title">用户指南</string>
-    <string name="user_guide_content">
-        1. 登录应用\n   - 打开应用，输入您的电子邮件和密码，然后点击登录。\n   - 或使用Google/Facebook登录。\n   - 没有账户？点击“新用户？注册”进行注册。\n2. 注册新账户\n   - 输入您的姓名、电子邮件、密码、学生证号码和电话号码。\n   - 点击提交完成注册。\n3. 借用设备\n   - 在菜单中选择“设备”。\n   - 选择设备，点击“借用”，输入数量并确认。\n4. 预订教室\n   - 在菜单中选择“教室”。\n   - 选择教室，点击“借用”，选择设备并确认。\n5. 查看交易历史\n   - 进入“历史记录”，按教室编号或设备名称搜索。\n   - 点击“归还教室”或“归还设备”完成归还。\n6. 管理账户\n   - 进入“账户管理”，更新您的信息或登出。\n7. 设置\n   - 进入“设置”，选择语言或深色模式，重启应用以应用更改。\n8. 查看通知\n   - 进入“通知”，查看系统通知。\n9. 联系我们\n   - 进入“联系”，查看联系信息以获取支持。
-    </string>
     <string name="device_id">设备ID</string>
     <string name="device_model">设备型号</string>
     <string name="manufacturer">制造商</string>
@@ -90,4 +87,108 @@
     <string name="send_request">发送请求</string>
     <string name="request_sent">支持请求已成功发送！</string>
     <string name="request_failed">发送支持请求失败。</string>
+
+    <string name="login_google_successful">谷歌登录成功</string>
+    <string name="login_google_failed">谷歌登录失败</string>
+    <string name="create_account_successful">创建账户成功</string>
+    <string name="create_account_failed">创建账户失败</string>
+    <string name="logout_successful">登出成功</string>
+    <string name="reload_app">请重新启动应用以更新语言。</string>
+    <string name="failed_fetch_data_firestore">从Firestore检索数据时出错</string>
+    <string name="no_equipment">房间内没有设备</string>
+    <string name="room_is_occupied">房间已被占用，请选择其他房间</string>
+    <string name="error_update_room_status">更新房间状态时出错</string>
+    <string name="error_update_equipment_status">更新设备状态时出错</string>
+    <string name="room_borrowed_successfully">房间借用成功</string>
+    <string name="room_borrowed_failed">借用房间失败</string>
+    <string name="check_out_successful">退房成功</string>
+    <string name="check_out_failed">退房失败</string>
+    <string name="search_history">按房间ID或设备名称搜索</string>
+    <string name="equipment_id">设备ID</string>
+    <string name="equipment_name">设备名称</string>
+    <string name="enter_quantity">请输入数量（最大值：</string>
+    <string name="borrow_successfully">借用成功</string>
+    <string name="borrow_equipment_successful">借用设备成功</string>
+    <string name="borrow_equipment_failed">借用设备失败</string>
+    <string name="equipment_quantity_required">请输入有效数量（1-</string>
+    <string name="failed_save_equipment_firestore">无法将设备保存到Firestore</string>
+    <string name="failed_save_room_firestore">无法将房间保存到Firestore</string>
+    <string name="notification_permission_granted">通知权限已授予</string>
+    <string name="notification_permission_denied">通知权限被拒绝</string>
+    <string name="permission_library">照片库访问被拒绝</string>
+    <string name="updated_photo_successfully">照片更新成功</string>
+    <string name="error_processing_photo">处理照片时出错</string>
+    <string name="room_borrowed_unreturned">您已借用另一间教室且尚未归还</string>
+    <string name="contact_admin">请联系管理员（联系部分）安排贷款。</string>
+    <string name="room_capacity">房间容量</string>
+    <string name="call_support">致电支持</string>
+    <string name="dial_failed">无法打开拨号盘</string>
+
+
+    <string name="user_guide_content">
+1. 登录应用程序\n
+   - 在手机或平板电脑上打开应用程序。\n
+   - 在相应字段中输入已注册的电子邮件地址和密码。\n
+   - 点击“登录”按钮进入应用程序。\n
+   - 如果想快速登录，可选择Google或Facebook图标（如果Google或Facebook账户尚未存在，将进行注册；如果已存在，则直接登录）。\n
+   - **注意**：登录或注册时需确保网络连接稳定（登录后，账户将有6天的会话有效期，在此期间无需网络即可访问应用）。如果忘记密码，点击“忘记密码？”，然后按照提示通过电子邮件重置密码。\n\n
+
+2. 注册新账户\n
+   - 在注册页面，填写所有必填信息：姓名、电子邮件、密码、学生ID和电话号码。\n
+   - **注意**：电子邮件必须有效，密码至少6个字符，学生ID需符合学校格式。\n
+   - 在点击“提交”发送注册请求前，仔细检查信息。\n
+   - 注册成功后，您将收到确认通知，并可立即登录。\n
+   - **如果出现错误**：检查电子邮件或学生ID是否已被使用。如需帮助，请通过“联系”部分联系管理员，并提供错误信息以便管理员更正。\n\n
+
+3. 借用设备\n
+   - 从主屏幕点击导航菜单中的“设备”（通常是设备图标或列表）。\n
+   - 浏览可用设备列表（投影仪、笔记本电脑、音箱等），或使用搜索栏快速查找。\n
+   - 点击您想借用的设备以查看详细信息（状态、剩余数量、最长借用时间）。\n
+   - 点击“借用”按钮，输入所需设备数量（如果超过一台），然后点击“确认”提交请求。\n
+   - **注意**：某些设备可能需要管理员批准（应用中不显示此信息；您需通过“联系”部分联系管理员，清楚说明借用原因和时间，等待管理员审核和批准）。\n
+   - **注意**：借用设备需要网络连接。如果没有网络，您的设备可能仅显示已借用状态（实际其他人仍看到设备可用），需重新连接网络才能完成借用。\n\n
+
+4. 预订教室\n
+   - 从主屏幕点击导航菜单中的“教室”。\n
+   - 查看可用教室列表，包括容量和可用设备（如投影仪、白板等）信息。\n
+   - 点击您想预订的教室，检查按日期和时间段的空闲情况。\n
+   - 选择所需时间段，然后点击“借用”。\n
+   - 如果需要额外设备（如投影仪），在点击“确认”前从配套设备列表中选择。\n
+   - **注意**：某些教室可能需要批准和安排时间。请通过“联系”部分联系管理员以进行预订。\n\n
+
+5. 查看借用历史\n
+   - 从主屏幕点击导航菜单中的“历史”。\n
+   - 交易列表将显示您借用教室或设备的记录，包括借用日期、归还日期和状态（借用中、已归还）等信息。\n
+   - 使用搜索栏按教室ID（例如：PH101）或设备名称（例如：投影仪）过滤交易。\n
+   - 要归还教室或设备，点击相关交易，然后选择“归还教室”或“归还设备”。\n
+   - **注意**：请按时归还，以免影响后续借用者。如果出现问题（设备损坏、教室描述不符），请立即通过“联系”部分报告。\n\n
+
+6. 管理账户\n
+   - 从主屏幕点击“账户管理”。\n
+   - 查看个人信息（姓名、电子邮件、学生ID、电话号码），如需编辑请联系管理员。\n
+   - 要更改密码，点击“更改密码”，输入旧密码和新密码，然后确认。\n
+   - 要退出登录，点击“退出登录”并确认，您将被重定向到登录页面。\n
+   - 要更新头像，点击头像，授予设备图库访问权限，然后选择您想要的照片。\n
+   - **注意**：如果更新时遇到错误，请检查网络连接或联系管理员。\n\n
+
+7. 设置\n
+   - 从主屏幕点击导航菜单中的“设置”。\n
+   - 从选项列表中选择显示语言（例如：越南语、英语、中文）。\n
+   - 启用/禁用暗色模式（Dark Mode），以切换明亮或暗色界面，适应不同光线条件。\n
+   - 更改后，点击“保存”，建议重启应用程序以应用新设置。\n
+   - **注意**：如果启用暗色模式或切换语言后界面或语言未更改，尝试退出登录并重新登录。\n\n
+
+8. 查看通知\n
+   - 从主屏幕点击“通知”（菜单中的铃铛图标）。\n
+   - 查看管理员发送的常规通知列表。\n
+   - **注意**：只有联网时才能接收通知。如果离线，通知取决于管理员设置的通知有效时长；重新连接后，若通知仍在有效期内，您将收到通知。\n\n
+
+9. 联系\n
+   - 从主屏幕点击导航菜单中的“联系”。\n
+   - 查看管理员的联系信息，包括电子邮件、电话号码或支持办公室地址。\n
+   - 如需直接帮助，点击电子邮件或电话号码发送消息/拨打电话（取决于设备）。\n
+   - 若需借用特殊教室或设备举办活动，需通过电子邮件发送完整活动详情、时间、所需教室和设备请求，并附上申请表（如有），等待管理员批准。\n
+   - 要报告问题（例如设备损坏、系统错误），请在“发送反馈”部分（如果有）填写反馈表，详细描述问题，然后点击“发送”。\n
+   - **注意**：联系时记下交易代码或教室/设备ID，以便更快获得帮助。响应时间可能为24-48小时，具体取决于问题。\n
+    </string>
 </resources>
